@@ -1,3 +1,8 @@
+from slack_sdk import WebClient
+from slack_sdk.errors import SlackApiError
+
+import json
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -16,6 +21,9 @@ response = requests.get(
       })
 
 
+slack_token = "xoxb-6080531073010-7198020412690-YKG805eEyhxaEvXA59LSNVVP"
+client = WebClient(token=slack_token)
+
 if response.status_code == 200:
     soup = BeautifulSoup(response.content, "html.parser")
 
@@ -24,20 +32,29 @@ if response.status_code == 200:
 
     # 멜론차트 TOP100인 경우
     # songs = soup.find_all("tr", class_="lst50") + soup.find_all("tr", class_="lst100")
-    
-    n = 1
+
     for song in songs:
         title = song.find("div", class_="rank01").text.strip('\n')
         artist = song.find("div", class_="rank02").find("a").text.strip('\n')
         songs_data = {
-        "rank": n,
         "title": title,
         "artist": artist
         }
         all_songs.append(songs_data)
-        n += 1
 
-    print(all_songs)
+    try:
+        songs_str = json.dumps(all_songs, ensure_ascii=False, indent=2)
+
+        response = client.chat_postMessage(
+            channel="C0631FF2R6U", #채널 id를 입력합니다.
+            # text= songs_str
+            text= f"{str(len(all_songs))}개 음악 검색됨"
+        )
+    except SlackApiError as e:
+        assert e.response["error"]
 
 else:
-    print("Can't get Songs.")
+    response = client.chat_postMessage(
+    channel="C0631FF2R6U", #채널 id를 입력합니다.
+    text= "Can't get songs..."
+)

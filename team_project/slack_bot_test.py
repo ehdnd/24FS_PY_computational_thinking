@@ -1,10 +1,15 @@
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+import os
+from dotenv import load_dotenv
 
 import json
 
 import requests
 from bs4 import BeautifulSoup
+
+load_dotenv()
+slack_token = os.getenv("slack_token")
 
 all_songs = []
 
@@ -20,8 +25,6 @@ response = requests.get(
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Whale/3.24.223.18 Safari/537.36"
       })
 
-
-slack_token = "xoxb-6080531073010-7198020412690-YKG805eEyhxaEvXA59LSNVVP"
 client = WebClient(token=slack_token)
 
 if response.status_code == 200:

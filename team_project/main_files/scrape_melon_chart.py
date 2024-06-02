@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 # 발라드: 100, 댄스: 200, 랩/힙합: 300, R&B/Soul: 400, 인디음악: 500, 록/메탈: 600, 트로트: 700, 포크/블루스: 800
 
-def get_songs(num):
+def get_genre_all_songs(num):
     all_songs = []
 
     song_url = f"https://www.melon.com/genre/song_list.htm?gnrCode=GN0{num}"

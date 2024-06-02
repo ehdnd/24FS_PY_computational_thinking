@@ -1,9 +1,9 @@
-from gpt_api import diary_to_emotion
-from melon_chart import get_songs
+from gpt_diary_to_emotion import diary_to_emotion
+from scrape_melon_chart import get_genre_all_songs
 import random
 
-# emotion = diary_to_emotion()
-emotion = "fasd" #else
+emotion = diary_to_emotion()
+# emotion = "else인 경우확인"
 # emotion = '즐거움'
 
 print(emotion)
@@ -26,8 +26,8 @@ else:
     print("gpt 오류")
     num = None
 
-all_songs = get_songs(num)
+all_songs = get_genre_all_songs(num)
 
 if all_songs != []:
     songs = random.choice(all_songs)
-    print(f"추천곡: {songs['title']}, 아티스트: {songs['artist']}")
+    print(f"[{songs['rank']}위] 추천곡: {songs['title']}, 아티스트: {songs['artist']}")

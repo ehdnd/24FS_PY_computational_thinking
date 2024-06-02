@@ -1,10 +1,31 @@
 import requests
 from bs4 import BeautifulSoup
+from gpt_api import diary_to_emotion
 
 all_songs = []
 
-print("발라드: 100, 댄스: 200, 랩/힙합: 300, R&B/Soul: 400, 인디음악: 500, 록/메탈: 600, 트로트: 700, 포크/블루스: 800")
-num = input("숫자 입력: ")
+emotion = diary_to_emotion()
+print(emotion)
+
+if emotion == '기쁨':
+    num = 200
+elif emotion == '슬픔':
+    num = 100
+elif emotion == '분노':
+    num = 600
+elif emotion == '두려움':
+    num = 500
+elif emotion == '혐오':
+    num = 300
+elif emotion == '놀람':
+    num = 100
+elif emotion == '외로움':
+    num = 400
+else:
+    print("gpt 오류")
+
+# print("발라드: 100, 댄스: 200, 랩/힙합: 300, R&B/Soul: 400, 인디음악: 500, 록/메탈: 600, 트로트: 700, 포크/블루스: 800")
+# num = input("숫자 입력: ")
 
 song_url = f"https://www.melon.com/genre/song_list.htm?gnrCode=GN0{num}"
 
@@ -37,7 +58,7 @@ if response.status_code == 200:
         all_songs.append(songs_data)
         n += 1
 
-    print(all_songs)
+    print(len(all_songs))
 
 else:
     print("Can't get Songs.")

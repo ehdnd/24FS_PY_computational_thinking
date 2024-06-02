@@ -72,6 +72,6 @@ else:
 
 all_songs = get_songs(num)
 
-if all_songs == []:
+if all_songs != []:
     songs = random.choice(all_songs)
     print(f"추천곡: {songs['title']}, 아티스트: {songs['artist']}")

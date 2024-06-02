@@ -11,6 +11,8 @@ from bs4 import BeautifulSoup
 load_dotenv()
 slack_token = os.getenv("slack_token")
 
+print(slack_token)
+
 all_songs = []
 
 print("발라드: 100, 댄스: 200, 랩/힙합: 300, R&B/Soul: 400, 인디음악: 500, 록/메탈: 600, 트로트: 700, 포크/블루스: 800")

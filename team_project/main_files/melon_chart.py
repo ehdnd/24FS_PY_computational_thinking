@@ -42,3 +42,4 @@ def get_songs(num):
         
     else:
         print("Can't get Songs.")
+        return all_songs

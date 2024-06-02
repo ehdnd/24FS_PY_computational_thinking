@@ -1,10 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 from gpt_api import diary_to_emotion
+import random
 
 all_songs = []
 
-emotion = diary_to_emotion()
+# emotion = diary_to_emotion()
+emotion = "fasd" #else
+
 print(emotion)
 
 if emotion == '기쁨':
@@ -23,6 +26,7 @@ elif emotion == '외로움':
     num = 400
 else:
     print("gpt 오류")
+    num = "laskdjfldsajflsajd"
 
 # print("발라드: 100, 댄스: 200, 랩/힙합: 300, R&B/Soul: 400, 인디음악: 500, 록/메탈: 600, 트로트: 700, 포크/블루스: 800")
 # num = input("숫자 입력: ")
@@ -59,6 +63,9 @@ if response.status_code == 200:
         n += 1
 
     print(len(all_songs))
+
+    songs = random.choice(all_songs)
+    print(f"추천곡: {songs['title']}, 아티스트: {songs['artist']}")
 
 else:
     print("Can't get Songs.")

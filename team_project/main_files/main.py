@@ -1,3 +1,6 @@
+from gpt import diary_summary
+from recommend_song import recommend_song
+
 while 1:
     print("=" * 20)
     print("기능 선택")

@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 
 # 발라드: 100, 댄스: 200, 랩/힙합: 300, R&B/Soul: 400, 인디음악: 500, 록/메탈: 600, 트로트: 700, 포크/블루스: 800
 
+
+# [ 각 곡에 해당하는 {딕셔너리}라 모인 ] 리스트 반환
 def get_genre_all_songs(num):
     all_songs = []
 

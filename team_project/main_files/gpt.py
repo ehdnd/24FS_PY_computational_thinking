@@ -2,6 +2,7 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
+# diary 변수로 받으면 '감정' return
 def diary_to_emotion(diary):
     load_dotenv()
 
@@ -20,6 +21,8 @@ def diary_to_emotion(diary):
 
     return (completion.choices[0].message.content)
 
+
+# diary 변수로 받으면 요약 내용 return
 def diary_summary(diary):
     load_dotenv()
 

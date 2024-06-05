@@ -1,5 +1,6 @@
 from gpt import diary_summary
 from recommend_song import recommend_song
+from diary import write_diary, list_diaries, load_diary
 
 while 1:
     print("=" * 20)
@@ -28,9 +29,11 @@ while 1:
         while 1:
             print("[3. 음악추천] 불러올 일기 선택")
                                     # 일기 목록 출력; len으로 반복실행
-            diary = None            # 일기 불러오는 def 필요
+            diary = "날씨가 좋다." 
+            print(f"일기: {diary}")           # 일기 불러오는 def 필요
             random_song = recommend_song(diary)   # 음악 추천 def(불러온 일기) 필요
             if random_song != "error":
+                print(f"추천곡: {random_song}")
                 break
             else:
                 print("GPT 요약에 있어 문제가 발생했습니다.")

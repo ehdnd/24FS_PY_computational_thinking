@@ -1,6 +1,6 @@
-from gpt import diary_summary
-from recommend_song import recommend_song
-from diary import write_diary, list_diaries, load_diary
+from functions.gpt import diary_summary
+from functions.recommend_song import recommend_song
+from functions.diary import write_diary, list_diaries, load_diary
 
 while 1:
     print("=" * 50)

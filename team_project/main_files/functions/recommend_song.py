@@ -1,5 +1,5 @@
-from gpt import diary_to_emotion
-from scrape_melon_chart import get_genre_all_songs
+from functions.gpt import diary_to_emotion
+from functions.scrape_melon_chart import get_genre_all_songs
 import random
 
 # diary 변수로 받으면 추천곡

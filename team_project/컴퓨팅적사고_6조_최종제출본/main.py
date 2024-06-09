@@ -3,7 +3,7 @@ from functions.recommend_song import recommend_song
 from functions.diary import write_diary, list_diaries, load_diary
 
 print("=" * 50)
-print("[ 컴퓨팅적사고와코딩기초 6조 팀프로젝프 프로그램 ]")
+print("[ 컴퓨팅적사고와코딩기초 6조 팀프로젝트 프로그램 ]")
 
 while 1:
     print("=" * 50)

@@ -42,7 +42,7 @@ def get_genre_all_songs(num):
             all_songs.append(songs_data)
             n += 1
 
-        print(len(all_songs))
+        # print(len(all_songs))
         return all_songs
         
     else:
